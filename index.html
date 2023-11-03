@@ -1,0 +1,1204 @@
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta name="description" content="Pickle Rick">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pickle Rick (Ticker:$RICK)</title>
+    <meta name="description" content='Pickle Rick'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="assets/Rick_and_Morty_Display_Picture_71fba2d7-7fe8-4228-954f-671ff864b66d.webp" type="image/x-icon">
+
+    <meta property="og:site_name" content="Pickle Rick (Ticker:$RICK)">
+    <meta property="og:title" content="Pickle Rick (Ticker:$RICK)">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content='Pickle Rick "'>
+
+    <style type="text/css">
+        * {
+            cursor: url("./sm-wand-removebg-preview.png"), crosshair !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            /* cursor:  url(./sm-wand-removebg-preview.png), default; */
+
+        }
+
+
+        .falling-banana.svelte-j21y6u {
+            position: absolute;
+            animation: svelte-j21y6u-fall var(--speed) linear infinite;
+        }
+
+        @keyframes svelte-j21y6u-fall {
+            0% {
+                transform: translateY(-100px);
+            }
+
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            video {
+                width: 30px !important;
+            }
+        }
+
+
+
+        .content-area {
+            margin-left: 5%;
+            margin-right: 5%;
+            background-color: rgba(0, 0, 0, 0.829);
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-background {
+            background-image: url("/assets/rick-meme-1.gif");
+            background-size: 100%;
+            background-repeat: repeat-y;
+            background-attachment: fixed;
+            height: 100%;
+            width: 100%;
+        }
+
+        .alpha-darken-bg {
+            background-color: rgba(70, 30, 30, 0.829);
+        }
+
+        a {
+            background-color: rgba(255, 255, 255, 1);
+            ;
+        }
+
+        .header-img {
+            max-height: 18px;
+        }
+
+        div.content-area {
+            padding: 1%;
+        }
+
+        .video-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+
+        .video-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .top-nav {
+            font-weight: bold;
+        }
+
+        #harrypotterobamasonic10inu {
+            background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: -1em;
+        }
+
+        :root {
+            --width: 300px;
+            --x-speed: 13s;
+            --y-speed: 7s;
+            --transition-speed: 2.2s;
+        }
+
+        .el {
+            /* width: var(--width); */
+            /* height: var(--width); */
+            height: 50px;
+            z-index: 20;
+        }
+
+        .x {
+            animation: x var(--x-speed) linear infinite alternate;
+        }
+
+        .y {
+            animation: y var(--y-speed) linear infinite alternate;
+        }
+
+        @keyframes x {
+            100% {
+                transform: translateX(calc(100vw - var(--width)));
+            }
+        }
+
+        @keyframes y {
+            100% {
+                transform: translateY(calc(100vh - var(--width)));
+            }
+        }
+
+        button {
+            background-image: linear-gradient(to right, #015ad1, #1748bc);
+            border-radius: 50px;
+            border: 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 25px;
+            transition: all 0.1s ease-in-out;
+        }
+
+        button.redpill {
+            background-image: linear-gradient(to right, #d10101, #bc1717);
+            border-radius: 50px;
+            border: 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 25px;
+            transition: all 0.1s ease-in-out;
+        }
+
+        button:active {
+            opacity: 0.8;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 1px 2px #015ad1;
+        }
+
+        .modal-wrapper {
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: all 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .modal-wrapper.open {
+            opacity: 1;
+            z-index: 999;
+        }
+
+        .modal {
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 380px;
+            max-width: 95%;
+        }
+
+        .modal-header {
+            background: #015ad1;
+            background-image: linear-gradient(to right, #015ad1, #1748bc);
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 15px 20px;
+        }
+
+        .modal-body h4 {
+            margin: 0;
+        }
+
+        .modal-body p {
+            letter-spacing: 0.5px;
+            line-height: 24px;
+            margin: 10px 0 0;
+        }
+
+        .modal-footer {
+            background-color: #eee;
+            padding: 15px 0;
+        }
+
+        @font-face {
+            font-family: "Nise-Sega";
+            src: url(NiseSega.TTF);
+        }
+
+        #HarryPotterObamaSonic10Inu {
+            font-family: "Nise-Sega";
+            font-weight: 100;
+        }
+
+        .HowToBuy,
+        .ca {
+            font-size: 1.3rem;
+        }
+
+        .addy {
+            color: turquoise;
+        }
+    </style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZV2L095DP6');
+    </script>
+</head>
+
+<body class="img-background">
+
+
+    <div> <img src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 66.0158998517048%; left: 35.600798226545784%; --speed: 7.904984618018796s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 63.363882307637034%; left: 66.93872526316123%; --speed: 7.730718015279612s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 94.61363686740995%; left: 88.85825074531357%; --speed: 14.064013926658417s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 81.13585434748197%; left: 45.04323401256529%; --speed: 10.957715681263027s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 97.78192125265619%; left: 94.4871136549424%; --speed: 14.586801523642315s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 3.6353117672538238%; left: 47.29896212081213%; --speed: 6.215374987923921s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 16.76552653726324%; left: 15.441835785449998%; --speed: 8.155363042214441s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 37.25214191301907%; left: 32.2460933165811%; --speed: 9.628105739459079s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 96.28287342164835%; left: 46.65394981535691%; --speed: 14.879491915902188s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 45.92071762522285%; left: 26.722655307836042%; --speed: 7.364825072807733s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 87.96437502942551%; left: 76.99043865474235%; --speed: 11.055283244565171s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 28.13584907501101%; left: 23.808991162496152%; --speed: 10.97287884017592s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 85.98653637834477%; left: 0.9622010724896324%; --speed: 8.420380995832222s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 20.349209098183742%; left: 67.85791880114228%; --speed: 13.854492283495809s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 40.18615679739279%; left: 2.8141082949628027%; --speed: 14.955220963140512s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 60.964481811807204%; left: 39.77667126439195%; --speed: 12.988100302082465s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 97.92576223156723%; left: 33.47318635762186%; --speed: 10.865526465501851s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 65.94598792918414%; left: 45.07207039723469%; --speed: 11.775644378585879s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 42.50286458271844%; left: 85.66534644773289%; --speed: 14.045836106262755s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 23.220372557765344%; left: 58.08381178992352%; --speed: 14.60317176809368s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 24.208907625718766%; left: 31.743021003361438%; --speed: 14.7067565692955s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 36.87847812358407%; left: 92.8555783683729%; --speed: 13.479350466084966s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 76.64471792857775%; left: 26.661483636317907%; --speed: 11.120779648269608s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 54.00681880719165%; left: 14.390840481776213%; --speed: 5.42801099079176s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 33.12939977869631%; left: 27.619339179021907%; --speed: 6.119589874622586s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 36.38261590356191%; left: 6.367043488440327%; --speed: 8.865137321949152s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 85.90612007928009%; left: 20.625907826756883%; --speed: 10.864077178860976s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 55.545403663172245%; left: 71.81733473968688%; --speed: 14.036623084657291s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 98.31957422407227%; left: 11.77835477351481%; --speed: 8.012706826953517s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 70.64838296995862%; left: 48.26099287895664%; --speed: 13.301453719982652s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 15.312391902862688%; left: 27.026983654530735%; --speed: 5.886494464699403s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 95.3388768977199%; left: 21.319065438577933%; --speed: 13.08758265121083s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 18.953642673370187%; left: 42.784673815298916%; --speed: 12.988100729359575s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 75.1331136414365%; left: 3.2429339547219493%; --speed: 9.722182382708526s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 37.964058742745266%; left: 96.67634883347233%; --speed: 5.079014991796511s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 48.869425448982426%; left: 99.08058060019063%; --speed: 12.868523941452485s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 30.21597236221907%; left: 11.13882775949644%; --speed: 13.362599051555302s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 75.03224660242105%; left: 78.30486141426118%; --speed: 7.124162008987143s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 75.08679917912866%; left: 39.09273828824114%; --speed: 13.239176826448736s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 19.202632077108838%; left: 29.33278869952527%; --speed: 7.749901098920244s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 76.83391318488479%; left: 72.33323138062869%; --speed: 14.338478532391159s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 52.0364025160815%; left: 34.68383787774756%; --speed: 8.552996548977498s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 23.924055649025956%; left: 60.2960227787885%; --speed: 11.103844496040624s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 49.139443834993116%; left: 55.10376005524718%; --speed: 8.933659291052656s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 44.40105669376921%; left: 5.215967831339241%; --speed: 10.583108598906435s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 30.76500657285073%; left: 30.892354959120905%; --speed: 5.934255226693943s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 66.53195557545122%; left: 73.54685077428458%; --speed: 9.597397314578302s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 9.087179540996427%; left: 52.75434134527741%; --speed: 13.412107560281255s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 27.53315075106815%; left: 39.29203700746753%; --speed: 10.634863016512083s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 55.91619591933195%; left: 35.86082778207393%; --speed: 5.536795674514085s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 79.77268222162563%; left: 52.60778996876707%; --speed: 11.830011477065135s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 1.4634748824711608%; left: 3.4636813091426966%; --speed: 8.116838059657434s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 17.954127997153456%; left: 6.036477409504615%; --speed: 11.905639852823697s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 9.444375688682705%; left: 68.67840323629513%; --speed: 10.007658264622206s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 53.201552099398675%; left: 46.9719581421642%; --speed: 14.240880145749879s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 85.66704168334252%; left: 67.12196599889796%; --speed: 9.325896641926759s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 64.76884338293686%; left: 24.678873473968466%; --speed: 5.5404729731734985s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 68.62625616295084%; left: 76.3114616805579%; --speed: 13.967371626735785s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 26.497964799327356%; left: 73.29528471013505%; --speed: 10.666133656533688s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 88.66836765427595%; left: 28.90491755956144%; --speed: 6.142081870902494s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 20.725612426219953%; left: 12.240400510161331%; --speed: 13.605145169746777s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 56.70181895675952%; left: 85.51477899462081%; --speed: 12.081480019476745s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 47.86987403348277%; left: 88.87144533355414%; --speed: 8.11531166920811s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 12.993962178305797%; left: 9.199744139581178%; --speed: 10.139131197962135s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 22.7997885625971%; left: 80.57180043419969%; --speed: 13.991947258696422s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 45.86374001146281%; left: 38.95181347322618%; --speed: 10.411372912817928s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 81.38354091924786%; left: 35.99374326668971%; --speed: 8.326703130060187s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 91.20596500315862%; left: 53.02270929859394%; --speed: 13.217839880964243s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 5.998496456526947%; left: 53.902153148099764%; --speed: 12.95973575388103s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 67.8240410795672%; left: 76.51502664759069%; --speed: 14.601689109337933s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 64.53276365526253%; left: 58.89069765019299%; --speed: 9.699586982488162s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 80.07017534529268%; left: 94.43056904922442%; --speed: 8.51478027526629s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 29.431067550438918%; left: 83.68732652468066%; --speed: 5.167159555377621s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 7.882342037828516%; left: 12.524762026902824%; --speed: 7.817738634179321s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 89.77630799083126%; left: 89.74624016297503%; --speed: 6.829180935172721s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 21.06606955605819%; left: 31.86213125868891%; --speed: 6.953571245506957s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 40.85730365691938%; left: 97.33680056894703%; --speed: 7.043186006938738s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 8.3646874891393%; left: 34.41333143252236%; --speed: 6.0769728891833985s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 19.111388335276636%; left: 67.98302556700615%; --speed: 5.969041018606143s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 59.53307368912222%; left: 62.541271778605804%; --speed: 11.092056797505114s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 86.61471485759698%; left: 84.33914862827459%; --speed: 7.7611223467851715s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 30.54296818866127%; left: 5.23123769011522%; --speed: 11.681978592457211s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 15.44831404012097%; left: 94.07685381980029%; --speed: 7.003640998471328s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 97.06558267966763%; left: 46.09079057290968%; --speed: 11.842482251382446s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 94.2009707889228%; left: 85.15890259531753%; --speed: 12.982729559257194s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 68.98983301489818%; left: 73.43867978132495%; --speed: 9.521639072718305s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 9.840462679979245%; left: 22.427944261720235%; --speed: 9.914862353060808s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 9.439389248014773%; left: 56.03557725179596%; --speed: 14.524859658251767s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 87.71845829513884%; left: 11.317706835700726%; --speed: 12.912631290496495s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 99.28314873310109%; left: 55.573734408036415%; --speed: 5.379450888577093s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 13.641090928576594%; left: 61.615582875925725%; --speed: 5.771323055544069s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 94.35878393927466%; left: 87.55409727219536%; --speed: 7.562264577528217s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 31.719922299246782%; left: 41.25953285041102%; --speed: 12.73375271513662s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 30.07762285920903%; left: 1.3638322463135344%; --speed: 6.635052442311167s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 84.95807591111584%; left: 4.830622532033635%; --speed: 8.344544771779391s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 73.87593858229434%; left: 17.934999121654837%; --speed: 10.324171896691183s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 12.041267541383306%; left: 66.77447838851154%; --speed: 10.974669665189182s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 48.627606709173385%; left: 2.7736769797665373%; --speed: 9.027528895525933s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 64.64923347878397%; left: 37.41883772035799%; --speed: 8.805857427144495s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 97.2298595261796%; left: 55.20397521698357%; --speed: 7.844038295816s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 77.553999567569%; left: 57.407010937731194%; --speed: 5.552481833640042s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 2.758402929803916%; left: 21.986236487989743%; --speed: 9.297529837404877s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 14.506714951057443%; left: 24.88585061260067%; --speed: 12.774057227983132s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 6.806765956141381%; left: 48.335655677831824%; --speed: 6.998122157373336s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 35.14520010853881%; left: 82.8140466879749%; --speed: 6.608858876103827s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 72.53033241792517%; left: 40.02213435997266%; --speed: 14.104132907399032s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 32.158754636469446%; left: 54.35332285268544%; --speed: 7.991823753615632s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 44.226939685796026%; left: 92.79967324083105%; --speed: 8.857666246630558s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 42.70988563197744%; left: 99.5872013923304%; --speed: 7.518652472014821s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 76.20084870612367%; left: 88.3687660712625%; --speed: 11.541029840463864s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 81.00650953899611%; left: 10.153894961222498%; --speed: 8.326327222041082s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 13.195114448664391%; left: 74.45550907795293%; --speed: 7.257307351493942s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 88.17751886928397%; left: 6.001577859595497%; --speed: 6.743445108888122s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 59.45784728005255%; left: 5.45082955568994%; --speed: 11.977240030469904s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 31.989967010830945%; left: 34.5523206078264%; --speed: 13.197365814312558s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 46.968936248549475%; left: 77.90753164279094%; --speed: 11.441526541813872s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 58.51958945152012%; left: 69.42748430077643%; --speed: 11.013129640399306s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 47.24612611598133%; left: 13.890859604622662%; --speed: 9.935013228870051s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 91.83555500365964%; left: 78.32211692842108%; --speed: 9.595375462597993s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 23.433870395944865%; left: 5.77413144380472%; --speed: 13.831455517219291s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 7.30713598482744%; left: 88.47885216253397%; --speed: 5.371108025813244s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 11.025917121165008%; left: 42.731970216344585%; --speed: 5.579800007596796s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 77.42316301577048%; left: 91.97906421410357%; --speed: 14.848415634440371s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 7.970142506870848%; left: 64.44890855428511%; --speed: 13.308110703551122s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 9.71400032633949%; left: 16.358290871509862%; --speed: 11.877956991916287s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 63.718417050629064%; left: 23.74410851718416%; --speed: 12.699808305101888s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 25.162562436789848%; left: 11.62689443234537%; --speed: 9.5092704090097s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 71.5867501652792%; left: 25.500589860269574%; --speed: 5.423067793597078s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 7.394754441469442%; left: 65.77085762579419%; --speed: 12.109472810722533s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 42.04332185886355%; left: 30.84201306734762%; --speed: 14.817720493309052s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 41.50341598397189%; left: 1.4434167583157853%; --speed: 11.172331532226401s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 83.22675566818889%; left: 81.69147494135697%; --speed: 10.843989335499389s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 50.16644917619706%; left: 92.5079580927953%; --speed: 10.267467398225547s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 47.94994670857244%; left: 16.031275180758286%; --speed: 8.256002667196212s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 43.98155262592134%; left: 38.50702351750031%; --speed: 14.79320157640404s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 98.59638681212152%; left: 80.58839778294941%; --speed: 10.010578270939952s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 99.1564953634556%; left: 25.3527193078231%; --speed: 7.696703636199258s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 50.694090321637745%; left: 47.239133535411604%; --speed: 6.442909081670312s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 20.55812369768124%; left: 37.623649090852254%; --speed: 6.222135181173538s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 55.41187463148567%; left: 40.019750077185236%; --speed: 11.3796094477757s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 77.03546286059844%; left: 87.16573385759352%; --speed: 14.004929049836484s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 96.945831251682%; left: 5.531800561861067%; --speed: 11.70737190961831s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 19.852383029884855%; left: 65.10527431022646%; --speed: 14.503640416993841s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 28.825904250533263%; left: 51.580074361765924%; --speed: 10.22620949913787s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 66.27381632148219%; left: 25.37081747147667%; --speed: 11.110762903503815s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 22.710119502034985%; left: 67.23618555470814%; --speed: 6.955676843287479s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 0.04083654309667839%; left: 96.28628215074212%; --speed: 8.460529665216603s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 26.3325801820929%; left: 79.40597314023903%; --speed: 14.895760367993539s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 22.312570319168668%; left: 45.14518640210503%; --speed: 7.583030502657822s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 64.22837478436534%; left: 6.759496752080629%; --speed: 6.557596639044958s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 46.61618777395453%; left: 73.47786336102082%; --speed: 6.3476430308148935s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 49.62328530032845%; left: 62.660229072181494%; --speed: 13.397011801550583s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 67.23844831557324%; left: 67.29703948662922%; --speed: 11.849649768545827s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 52.934569335256995%; left: 93.32015245394243%; --speed: 12.210665726790754s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 87.82602206994761%; left: 68.27212527942181%; --speed: 9.894819498839507s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 61.750606336301516%; left: 20.33676911774396%; --speed: 8.917549617206053s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 3.990320602834685%; left: 93.0248320266195%; --speed: 6.3559601020415375s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 10.931883353371585%; left: 84.40028286326483%; --speed: 11.186210353358991s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 40.36066686376516%; left: 99.21853565330593%; --speed: 11.263420856460108s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 77.42604741905103%; left: 55.71373592877475%; --speed: 7.133441558271332s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 53.29023824617944%; left: 63.59448564415258%; --speed: 9.577589480007276s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 20.909868292425426%; left: 80.30778827349978%; --speed: 8.234545788080375s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 78.86982367836548%; left: 76.82491985878875%; --speed: 9.31045101539242s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 59.378566729902694%; left: 80.71909216210275%; --speed: 6.56802593967509s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 59.7728550210215%; left: 96.98959930897794%; --speed: 12.384973597977426s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 29.612792215286078%; left: 74.58482124760638%; --speed: 12.974168327693452s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 38.49241809334072%; left: 33.77623524832452%; --speed: 8.816664616043472s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 55.16009009277227%; left: 69.6867867789102%; --speed: 5.398710022650031s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 21.34341667166515%; left: 56.95405813641259%; --speed: 10.755992178835479s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 94.33556738819229%; left: 4.5346547730079845%; --speed: 14.924782537698766s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 19.737169475106707%; left: 83.6303723302279%; --speed: 11.48239977827581s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 90.81562397245662%; left: 66.05853906728103%; --speed: 5.957713545734187s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 51.01382969884569%; left: 37.53101797920666%; --speed: 13.175953867642011s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 90.08284023827117%; left: 9.232141098463376%; --speed: 5.448232862529601s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 41.74063755213182%; left: 94.98433557063417%; --speed: 10.572037805530892s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 14.049164880176557%; left: 79.84741186868472%; --speed: 9.9873799839897s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 77.03315573483916%; left: 91.86911963447248%; --speed: 8.260665523742254s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 1.4820067032154771%; left: 52.171490585365966%; --speed: 11.50306955094291s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 62.73407356000662%; left: 77.94495529558503%; --speed: 7.199336734461745s; width: 36px"><img
+            src="bcat.webp" alt="Falling Banana" class="falling-banana svelte-j21y6u"
+            style="top: 50.852280757931226%; left: 51.18274955973669%; --speed: 7.473719410962207s; width: 36px">
+    </div>
+    how to buy
+    <div class="modal-wrapper" id="modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Hi, I'm Pickle Rick</h3>
+            </div>
+            <div class="modal-body">
+                <h4>YOU CAN CALL ME  <br>
+
+                </h4>
+                <img src="/assets/Rick_and_Morty_Display_Picture_71fba2d7-7fe8-4228-954f-671ff864b66d.webp" alt="" style="max-width: 100px;">
+                <p>
+                    $RICK
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="redpill" id="closeModalBtn">Buy</button>
+                <button class="bluepill" id="redirectModalBtn">bUY </button>
+            </div>
+        </div>
+    </div>
+    <div style="width:100%">
+        <div class="header">
+            <div class="content-area">
+                <nav class="top-nav" style="font-size:24px;">
+                    <a href="#">Welcome Pickle Rick(Ticker:$RICK)</a>
+                    <img class="header-img" src="funny-pictures/emerald-red.png">
+                    <a href="#HowToBuy">How to Buy</a>
+                    <img class="header-img" src="funny-pictures/emerald-blue.png">
+                    <a href="#About">About</a>
+                    <img class="header-img" src="funny-pictures/emerald-orange.png">
+                    <a href="#Tokenomics">Tokenomics</a>
+                    <img class="header-img" src="funny-pictures/emerald-teal.png">
+                    <a href="https://www.dextools.io/" target="_blank">Chart</a>
+                    <img class="header-img" src="funny-pictures/emerald-red.png">
+                    <a href="#FunnyPictures">Funny Pictures</a>
+                    <img class="header-img" src="funny-pictures/emerald-orange.png">
+                    <a href="https://t.me/rickerc20" target="_blank">Telegram</a>
+                    <img class="header-img" src="funny-pictures/emerald-teal.png">
+                    <a href="https://twitter.com/rickerc20" target="_blank">Twitter</a>
+
+                    <img class="header-img" src="funny-pictures/emerald-silver.png">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <marquee style="color:rgb(255, 166, 0); font-size: 34px; display:inline-block;font-weight:bold;">
+                        <blink>Pickle Rick</blink>
+
+                    </marquee>
+
+                </nav>
+                <hr style="height:11px;border-width:0;color:rgb(0 34 189);background-color:rgb(0 34 189);">
+                <!-- <hr style="height:4px;border-width:0;color:rgb(82, 57, 37);background-color:rgb(82, 57, 37);    margin-left: 5%; -->
+                <!-- margin-right: 5%;"> -->
+            </div>
+        </div>
+    </div>
+    <div class="content-area">
+        <!-- <div class="el-wrap x">
+            <img class="el y" src="funny-pictures/snitch.gif"></img>
+        </div> -->
+        <h1 id="HarryPotterObamaSonic10Inu">Pickle Rick
+            (Ticker:$RICK)</h1>
+        <p class="ca">
+            ETH Token Contract: <span class="addy">0X0000000000000000000000</span>
+        </p>
+
+        <h2>RoadMap to $15bn ( + ∞% ) </h2>
+        <p>
+        </p>
+        <!-- <marquee direction="right" scrollamount="20"><img height="60px" src="funny-pictures/Hyper_Sonic_run_fly.gif"> -->
+        </marquee>
+    </div>
+
+    <!-- <style>
+        .u-class-x {
+            text-align: center;
+        }
+
+        .content-area,
+        .HowToBuy {
+            text-align: center;
+        }
+    </style> -->
+
+    <div class="content-area">
+        <!-- <audio id="music" controls autoplay loop>
+            <source src="mike.m4a" type="audio/mp3">
+        </audio> -->
+        <!-- <img src="wiggly-pictures/pictures-that-do-not-wiggle/chrome_I5Tbho54TL.png" style="width:100%; height:250px;"> -->
+        <h2 id="HowToBuy">How to Buy</h2>
+
+        <div class="u-class-x">
+            <ol class="HowToBuy">
+                <li>
+                    Download the Metamask extension and create an account: <a target="_blank"
+                        href="https://metamask.io/">MetaMask.io</a>
+                </li>
+                <li>
+                    Connect MetaMask to the Uniswap acquire some $RICK</b>
+                    <br />
+                    (<a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency"
+                        target="_blank">Uniswap</a> can be used.)
+                </li></br>
+
+
+            </ol>
+
+            <div>
+                <img src="assets/rick-meme-4.gif" alt="" width="500px">
+            </div>
+        </div>
+
+        <!-- <p>Website -> india ad campaign -> coingecko -> coinmarketcap</p> -->
+        <br>
+        <hr><br>
+        <h2 id="About"> Introducing $RICK: Pickle Rick Token</h2>
+        <p style="font-size: 24px; color:turquoise">
+            About the $RICK meme
+
+            Pickle Rick is the third episode of the third season of the Adult Swim animated television series Rick and
+            Morty. In a continuation of the season's storyline of Beth and Jerry's divorce, Pickle Rick explores Beth's
+            unhealthy relationship with Rick, who disregards the importance of family.
+
+            In 2020, the Pickle Rick meme was brought back as And then, he turned himself into a pickle, funniest shit
+            we ever seen
+
+            click <a href="https://rickandmorty.fandom.com/wiki/Pickle_Rick_(episode)?so=search" target="_blank"
+                rel="noopener noreferrer">HERE</a> for more
+        </p>
+
+
+
+
+        <div>
+            <p><img style="width:400px;" src="assets/rick-meme-2.gif"></p>
+            <p><img style="width:400px;" src="assets/rick-meme-4.gif"></p>
+
+        </div>
+        <br>
+        <hr><br>
+        <img style="position:relative; float: right;" src="assets/bg.gif" width="500px">
+        <h2 id="Tokenomics">Tokenomics</h2>
+        <p style="font-size: 24px; color:turquoise">
+
+            <!-- The Pickle Rick smart contract has 0 tax on all buys and sells. -->
+            </br>
+            Tokenomics <br> <br>
+
+            Total supply: 690,000,000,000
+            <br>
+            All Supply sent to the liquidity pool<br>
+            
+            lp burnt <br>
+            contract renouonced <br>
+            Tax: 0/0 <br>
+            Trust in $RICK<br>
+        </p>
+        <br>
+        <hr><br>
+        <h2 id="FunnyPictures">Funny Pictures And Videos</h2>
+
+        <style>
+
+        </style>
+
+        <video src="assets/I'M PICKLE RICK!.mp4" autoplay loop></video>
+
+        <textarea style="width:400px; height:300px; border-color: cyan; border-width: 1em;">
+            About the $RICK meme
+
+            Pickle Rick is the third episode of the third season of the Adult Swim animated television series Rick and
+            Morty. In a continuation of the season's storyline of Beth and Jerry's divorce, Pickle Rick explores Beth's
+            unhealthy relationship with Rick, who disregards the importance of family.
+
+            In 2020, the Pickle Rick meme was brought back as And then, he turned himself into a pickle, funniest shit
+            we ever seen
+
+                </textarea>
+        <img src="assets/rick-meme-1.gif" alt="" width="600px">
+
+        <textarea style="width:400px; height:300px; border-color: cyan; border-width: 1em;">
+            About the $RICK meme
+
+            Pickle Rick is the third episode of the third season of the Adult Swim animated television series Rick and
+            Morty. In a continuation of the season's storyline of Beth and Jerry's divorce, Pickle Rick explores Beth's
+            unhealthy relationship with Rick, who disregards the importance of family.
+
+            In 2020, the Pickle Rick meme was brought back as And then, he turned himself into a pickle, funniest shit
+            we ever seen
+
+        </textarea>
+        <img src="assets/rick-meme-5.jpg" style="max-width: 400px;">
+        <textarea style="width:400px; height:300px; border-color: cyan; border-width: 1em;">
+
+            About the $RICK meme
+
+            Pickle Rick is the third episode of the third season of the Adult Swim animated television series Rick and
+            Morty. In a continuation of the season's storyline of Beth and Jerry's divorce, Pickle Rick explores Beth's
+            unhealthy relationship with Rick, who disregards the importance of family.
+
+            In 2020, the Pickle Rick meme was brought back as And then, he turned himself into a pickle, funniest shit
+            we ever seen
+
+        </textarea>
+
+        </p>
+
+      
+<img src="/assets/bg-pickle.png" alt="">
+<img src="/assets/bg.gif" alt="">
+<img src="/assets/rick-meme-1.gif" alt="">
+<img src="/assets/rick-meme-2.gif" alt="">
+<img src="/assets/rick-meme-4.gif" alt="">
+
+<img src="/assets/rick-meme-5.jpg" alt="">
+<img src="/assets/rick-meme-6.jpg" alt="">
+
+<img src="/assets/rick-meme-7.jpg" alt="">
+
+<img src="/assets/rick-meme-8.jpg" alt="">
+
+<img src="/assets/rick-meme-9.jpg" alt="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <style>
+            .shinybtn {
+                /* background styles */
+                position: relative;
+                display: inline-block;
+                padding: 15px 25px;
+                background-color: yellow;
+                /*for compatibility with older browsers*/
+                background-image: linear-gradient(gold, rgb(213, 181, 0));
+
+                /* text styles */
+                color: blue;
+                font-weight: bol;
+                text-decoration: none;
+                font-size: 25px;
+                font-family: sans-serif;
+                margin-bottom: 3rem;
+            }
+
+            .shinybtn:after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: calc(100% - 4px);
+                height: 50%;
+                background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+            }
+
+            .none {
+                display: none;
+            }
+        </style>
+
+
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <!-- sparklels -->
+    <script type="text/javascript">
+        document.addEventListener('click', function () {
+            document.getElementById('music').play()
+        },
+            { once: true });
+
+        var colour = "random"; // "random" can be replaced with any valid colour ie: "red"...
+        var sparkles = 100;// increase of decrease for number of sparkles falling
+
+        var x = ox = 400;
+        var y = oy = 300;
+        var swide = 800;
+        var shigh = 600;
+        var sleft = sdown = 0;
+        var tiny = new Array();
+        var star = new Array();
+        var starv = new Array();
+        var starx = new Array();
+        var stary = new Array();
+        var tinyx = new Array();
+        var tinyy = new Array();
+        var tinyv = new Array();
+
+        colours = new Array('#ff0000', '#00ff00', '#ffffff', '#ff00ff', '#ffa500', '#ffff00', '#00ff00', '#ffffff', 'ff00ff')
+
+        n = 0;
+        y = 0;
+        x = 0;
+        n6 = (document.getElementById && !document.all);
+        ns = (document.layers);
+        ie = (document.all);
+        d = (ns || ie) ? 'document.' : 'document.getElementById("';
+        a = (ns || n6) ? '' : 'all.';
+        n6r = (n6) ? '")' : '';
+        s = (ns) ? '' : '.style';
+
+        if (ns) {
+            for (i = 0; i < n; i++)
+                document.write('<layer name="dots' + i + '" top=0 left=0 width=' + i / 2 + ' height=' + i / 2 + ' bgcolor=#ff0000></layer>');
+        }
+
+        if (ie)
+            document.write('<div id="con" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+
+        if (ie || n6) {
+            for (i = 0; i < n; i++)
+                document.write('<div id="dots' + i + '" style="position:absolute;top:0px;left:0px;width:' + i / 2 + 'px;height:' + i / 2 + 'px;background:#ff0000;font-size:' + i / 2 + '"></div>');
+        }
+
+        if (ie)
+            document.write('</div></div>');
+        (ns || n6) ? window.captureEvents(Event.MOUSEMOVE) : 0;
+
+        function Mouse(evnt) {
+
+            y = (ns || n6) ? evnt.pageY + 4 - window.pageYOffset : event.y + 4;
+            x = (ns || n6) ? evnt.pageX + 1 : event.x + 1;
+        }
+
+        (ns) ? window.onMouseMove = Mouse : document.onmousemove = Mouse;
+
+        function animate() {
+
+            o = (ns || n6) ? window.pageYOffset : 0;
+
+            if (ie) con.style.top = document.body.scrollTop + 'px';
+
+            for (i = 0; i < n; i++) {
+
+                var temp1 = eval(d + a + "dots" + i + n6r + s);
+
+                randcolours = colours[Math.floor(Math.random() * colours.length)];
+
+                (ns) ? temp1.bgColor = randcolours : temp1.background = randcolours;
+
+                if (i < n - 1) {
+
+                    var temp2 = eval(d + a + "dots" + (i + 1) + n6r + s);
+                    temp1.top = parseInt(temp2.top) + 'px';
+                    temp1.left = parseInt(temp2.left) + 'px';
+
+                }
+                else {
+
+                    temp1.top = y + o + 'px';
+                    temp1.left = x + 'px';
+                }
+            }
+
+            setTimeout("animate()", 10);
+        }
+
+        animate();
+
+        window.onload = function () {
+            if (document.getElementById) {
+
+                var i, rats, rlef, rdow;
+                for (var i = 0; i < sparkles; i++) {
+                    var rats = createDiv(3, 3);
+                    rats.style.visibility = "hidden";
+                    rats.style.zIndex = "999";
+                    document.body.appendChild(tiny[i] = rats);
+                    starv[i] = 0;
+                    tinyv[i] = 0;
+                    var rats = createDiv(5, 5);
+                    rats.style.backgroundColor = "transparent";
+                    rats.style.visibility = "hidden";
+                    rats.style.zIndex = "999";
+                    var rlef = createDiv(1, 5);
+                    var rdow = createDiv(5, 1);
+                    rats.appendChild(rlef);
+                    rats.appendChild(rdow);
+                    rlef.style.top = "2px";
+                    rlef.style.left = "0px";
+                    rdow.style.top = "0px";
+                    rdow.style.left = "2px";
+                    document.body.appendChild(star[i] = rats);
+                }
+                set_width();
+                sparkle();
+
+                const closeBtn = document.getElementById('closeModalBtn');
+                const modal = document.getElementById('modal');
+                const redirectBtn = document.getElementById('redirectModalBtn');
+                modal.classList.add('open');
+
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.remove('open');
+                });
+
+                redirectBtn.addEventListener('click', () => {
+                    window.open("https://app.uniswap.org/swap", '_blank');
+                })
+
+
+            }
+        }
+
+        function sparkle() {
+            var c;
+            if (Math.abs(x - ox) > 1 || Math.abs(y - oy) > 1) {
+                ox = x;
+                oy = y;
+                for (c = 0; c < sparkles; c++) if (!starv[c]) {
+                    star[c].style.left = (starx[c] = x) + "px";
+                    star[c].style.top = (stary[c] = y + 1) + "px";
+                    star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
+                    star[c].childNodes[0].style.backgroundColor = star[c].childNodes[1].style.backgroundColor = (colour == "random") ? newColour() : colour;
+                    star[c].style.visibility = "visible";
+                    starv[c] = 50;
+                    break;
+                }
+            }
+            for (c = 0; c < sparkles; c++) {
+                if (starv[c]) update_star(c);
+                if (tinyv[c]) update_tiny(c);
+            }
+            setTimeout("sparkle()", 40);
+        }
+
+        function update_star(i) {
+            if (--starv[i] == 25) star[i].style.clip = "rect(1px, 4px, 4px, 1px)";
+            if (starv[i]) {
+                stary[i] += 1 + Math.random() * 3;
+                starx[i] += (i % 5 - 2) / 5;
+                if (stary[i] < shigh + sdown) {
+                    star[i].style.top = stary[i] + "px";
+                    star[i].style.left = starx[i] + "px";
+                }
+                else {
+                    star[i].style.visibility = "hidden";
+                    starv[i] = 0;
+                    return;
+                }
+            }
+            else {
+                tinyv[i] = 50;
+                tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
+                tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
+                tiny[i].style.width = "2px";
+                tiny[i].style.height = "2px";
+                tiny[i].style.backgroundColor = star[i].childNodes[0].style.backgroundColor;
+                star[i].style.visibility = "hidden";
+                tiny[i].style.visibility = "visible"
+            }
+        }
+
+        function update_tiny(i) {
+            if (--tinyv[i] == 25) {
+                tiny[i].style.width = "1px";
+                tiny[i].style.height = "1px";
+            }
+            if (tinyv[i]) {
+                tinyy[i] += 1 + Math.random() * 3;
+                tinyx[i] += (i % 5 - 2) / 5;
+                if (tinyy[i] < shigh + sdown) {
+                    tiny[i].style.top = tinyy[i] + "px";
+                    tiny[i].style.left = tinyx[i] + "px";
+                }
+                else {
+                    tiny[i].style.visibility = "hidden";
+                    tinyv[i] = 0;
+                    return;
+                }
+            }
+            else tiny[i].style.visibility = "hidden";
+        }
+
+        document.onmousemove = mouse;
+        function mouse(e) {
+            if (e) {
+                y = e.pageY;
+                x = e.pageX;
+            }
+            else {
+                set_scroll();
+                y = event.y + sdown;
+                x = event.x + sleft;
+            }
+        }
+
+        window.onscroll = set_scroll;
+        function set_scroll() {
+            if (typeof (self.pageYOffset) == 'number') {
+                sdown = self.pageYOffset;
+                sleft = self.pageXOffset;
+            }
+            else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+                sdown = document.body.scrollTop;
+                sleft = document.body.scrollLeft;
+            }
+            else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+                sleft = document.documentElement.scrollLeft;
+                sdown = document.documentElement.scrollTop;
+            }
+            else {
+                sdown = 0;
+                sleft = 0;
+            }
+        }
+
+        window.onresize = set_width;
+        function set_width() {
+            var sw_min = 999999;
+            var sh_min = 999999;
+            if (document.documentElement && document.documentElement.clientWidth) {
+                if (document.documentElement.clientWidth > 0) sw_min = document.documentElement.clientWidth;
+                if (document.documentElement.clientHeight > 0) sh_min = document.documentElement.clientHeight;
+            }
+            if (typeof (self.innerWidth) == 'number' && self.innerWidth) {
+                if (self.innerWidth > 0 && self.innerWidth < sw_min) sw_min = self.innerWidth;
+                if (self.innerHeight > 0 && self.innerHeight < sh_min) sh_min = self.innerHeight;
+            }
+            if (document.body.clientWidth) {
+                if (document.body.clientWidth > 0 && document.body.clientWidth < sw_min) sw_min = document.body.clientWidth;
+                if (document.body.clientHeight > 0 && document.body.clientHeight < sh_min) sh_min = document.body.clientHeight;
+            }
+            if (sw_min == 999999 || sh_min == 999999) {
+                sw_min = 800;
+                sh_min = 600;
+            }
+            swide = sw_min;
+            shigh = sh_min;
+        }
+
+        function createDiv(height, width) {
+            var div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.height = height + "px";
+            div.style.width = width + "px";
+            // div.style.overflow = "hidden";
+            return (div);
+        }
+
+        function newColour() {
+            var c = new Array();
+            c[0] = 255;
+            c[1] = Math.floor(Math.random() * 256);
+            c[2] = Math.floor(Math.random() * (256 - c[1] / 2));
+            c.sort(function () { return (0.5 - Math.random()); });
+            return ("rgb(" + c[0] + ", " + c[1] + ", " + c[2] + ")");
+        }
+        // ]]>
+
+    </script>
+
+
+
+</body>
+
+<!-- Mirrored from hpos10i.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Aug 2023 11:33:08 GMT -->
+
+</html>
